@@ -1,0 +1,77 @@
+# Sensors
+
+#Dark Sky
+sensor.dark_sky_daily_summary:
+  friendly_name: "Summary"
+sensor.forecast_today:
+  friendly_name: "Today's Forecast"
+sensor.dark_sky_temperature:
+  friendly_name: "Current Outside Temp"
+sensor.dark_sky_humidity:
+  friendly_name: "Humidity"
+
+#Nest
+sensor.living_room_thermostat_humidity:
+ friendly_name: "Indoor Humidity"
+ icon: mdi:water-percent
+sensor.living_room_thermostat_hvac_state:
+ friendly_name: "Heating/Cooling"
+ icon: mdi:air-conditioner
+sensor.living_room_thermostat_operation_mode:
+ #friendly_name: "Heat/Cool/Eco"
+ hidden: "true"
+sensor.living_room_thermostat_target:
+ #friendly_name: "Set Point"
+ hidden: "true"
+sensor.living_room_thermostat_temperature:
+ #friendly_name: "Current Temperature"
+ hidden: "true"
+binary_sensor.living_room_thermostat_fan:
+ friendly_name: "Fan Status"
+ icon: mdi:fan
+binary_sensor.living_room_thermostat_has_leaf:
+ friendly_name: "Leaf"
+ icon: mdi:leaf
+binary_sensor.living_room_thermostat_is_locked:
+ #friendly_name: "Locked"
+ hidden: "true"
+binary_sensor.living_room_thermostat_is_using_emergency_heat:
+ friendly_name: "Emergency Heat"
+ icon: mdi:alert-circle
+binary_sensor.living_room_thermostat_online:
+ friendly_name: "Nest Online"
+ icon: mdi:check-circle
+
+#Pi-Hole
+sensor.pihole_ads_blocked_today:
+ friendly_name: "Ads Blocked Today"
+sensor.pihole_dns_queries_today:
+ friendly_name: "DNS Queries Today"
+sensor.pihole_ads_percentage_blocked_today:
+ friendly_name: "Percentage Blocked Today"
+ icon: mdi:percent
+sensor.pihole_domains_blocked:
+ friendly_name: "Domains Blocked"
+
+#Speed Test
+sensor.speedtest_download:
+ friendly_name: "Download"
+sensor.speedtest_upload:
+ friendly_name: "Upload"
+sensor.speedtest_ping:
+ friendly_name: "Ping"
+
+#Switches
+switch.switch:
+ friendly_name: Living Room Light
+ icon: mdi:lamp
+
+switch.switch_2:
+ friendly_name: Porch Lights
+ icon: mdi:lamp
+
+#Schlage Lock
+lock.locked:
+ friendly_name: Front Door
+sensor.front_lock_battery:
+ icon: mdi:battery

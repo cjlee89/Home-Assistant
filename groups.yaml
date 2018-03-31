@@ -1,0 +1,104 @@
+##################################################
+#                                                 #
+#                  HOME TAB                       #
+#                                                 #
+###################################################
+home_tab:
+  name: Home
+  view: yes
+  icon: mdi:home-outline
+  entities:
+   - group.darksky_today
+   - group.darksky_forecast
+   - group.nest_thermostat
+   - group.device_detection
+   - group.lights
+   - group.locks
+   - device_tracker.corysiphone
+   - device_tracker.katesiphone
+
+darksky_today:
+  name: Today
+  entities:
+   - sensor.forecast_today
+   - sensor.dark_sky_temperature
+   - sensor.dark_sky_humidity
+
+darksky_forecast:
+  name: 7-Day Forecast
+  entities:
+   - sensor.dark_sky_daily_summary
+   - sensor.forecast_1
+   - sensor.forecast_2
+   - sensor.forecast_3
+   - sensor.forecast_4
+   - sensor.forecast_5
+   - sensor.forecast_6
+   - sensor.forecast_7
+
+nest_thermostat:
+  name: Thermostat
+  entities:
+   - climate.living_room
+   - sensor.living_room_thermostat_humidity
+   - sensor.living_room_thermostat_hvac_state
+   - sensor.living_room_thermostat_operation_mode
+   - sensor.living_room_thermostat_target
+   - sensor.living_room_thermostat_temperature
+   - binary_sensor.living_room_thermostat_has_leaf
+
+lights:
+  name: Lights
+  entities:
+   - switch.switch
+   - switch.switch_2
+
+locks:
+  name: Locks
+  entities:
+   - lock.locked
+   - sensor.front_lock_battery
+
+
+###################################################
+#                                                 #
+#                  STATUS TAB                     #
+#                                                 #
+###################################################
+Status_tab:
+  name: Status
+  view: yes
+  icon: mdi:pulse
+  entities:
+    - group.pihole_status
+    - group.speed_test
+    - group.online_status
+    - group.zwave_status
+
+pihole_status:
+  name: "Pi-Hole"
+  entities:
+   - sensor.pihole_ads_blocked_today
+   - sensor.pihole_dns_queries_today
+   - sensor.pihole_ads_percentage_blocked_today
+   - sensor.pihole_domains_blocked
+   
+speed_test:  
+  name: "Internet Speed"
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+
+online_status:
+  name: "Online Status"
+  entities:
+   - binary_sensor.living_room_thermostat_online
+
+zwave_status:
+  name: Z-Wave
+  entities:
+    - zwave.aeotec_zw090_zstick_gen5_us
+    - zwave.ge_12719_plugin_smart_switch
+    - zwave.ge_12722_onoff_relay_switch
+    - zwave.schlage_be469_touchscreen_deadbolt

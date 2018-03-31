@@ -1,0 +1,14 @@
+###################################################
+#                                                 #
+#                    UNIFI                        #
+#                                                 #
+###################################################
+#https://www.home-assistant.io/components/device_tracker.unifi/
+- platform: unifi
+  username: !secret unifi_un
+  password: !secret unifi_pw
+  host: !secret unifi_host
+  verify_ssl: false
+  interval_seconds: 15
+  consider_home: 60
+  track_new_devices: true
