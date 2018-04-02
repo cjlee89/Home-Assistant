@@ -1,0 +1,44 @@
+climate.living_room:
+  name:
+  platform: nest
+  unique_id: OSz0w2L_w64mtwRKdbr-xaw8pwmS_qOU
+switch.switch:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076282880
+switch.switch_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093060096
+lock.front_door:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110836736
+sensor.schlage_be469_touchscreen_deadbolt_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082497
+sensor.schlage_be469_touchscreen_deadbolt_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082513
+sensor.schlage_be469_touchscreen_deadbolt_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082529
+sensor.schlage_be469_touchscreen_deadbolt_access_control:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082641
+sensor.schlage_be469_touchscreen_deadbolt_burglar:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082657
+sensor.schlage_be469_touchscreen_deadbolt_power_management:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082673
+sensor.schlage_be469_touchscreen_deadbolt_system:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082689

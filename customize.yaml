@@ -71,7 +71,7 @@ switch.switch_2:
  icon: mdi:lamp
 
 #Schlage Lock
-lock.locked:
+lock.front_door:
  friendly_name: Front Door
 sensor.front_lock_battery:
  icon: mdi:battery

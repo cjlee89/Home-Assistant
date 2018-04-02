@@ -33,12 +33,8 @@
 ###################################################
 #https://github.com/arsaboo/homeassistant-config/blob/master/packages/weather.yaml
 #https://community.home-assistant.io/t/7-day-weather-forecast/40114
-- platform: season
 - platform: template
   sensors:
-    weekday:
-      friendly_name: 'Weekday'
-      value_template: '{{ now().strftime("%A") }}'
     forecast_today:
       friendly_name: "Today's Forecast"
       value_template: >
