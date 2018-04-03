@@ -36,7 +36,7 @@
 - platform: template
   sensors:
     forecast_today:
-      friendly_name: "Today's Forecast"
+      friendly_name: "Forecast"
       value_template: >
         {{states.sensor.dark_sky_daily_high_temperature.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability.state|round(0)}}%
       icon_template: >-
@@ -317,5 +317,17 @@
   sensors:
     front_lock_battery:
       friendly_name: "Front Door Battery"
-      value_template: "{{ states.zwave.schlage_be469_touchscreen_deadbolt.attributes.battery_level }}"
+      value_template: "{{states.zwave.schlage_be469_touchscreen_deadbolt.attributes.battery_level}}"
+      unit_of_measurement: '%'
+
+###################################################
+#                                                 #
+#                GARAGE BATTERY                   #
+#                                                 #
+###################################################
+- platform: template
+  sensors:
+    garage_door_battery:
+      friendly_name: "Battery"
+      value_template: "{{states.cover.garage_door.attributes.battery_level | round (0)}}"
       unit_of_measurement: '%'

@@ -28,6 +28,7 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 device_tracker: !include device_tracker.yaml
+scene: !include scenes.yaml
 
 ###################################################
 #                                                 #

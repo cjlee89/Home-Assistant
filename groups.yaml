@@ -61,9 +61,27 @@ locks:
    - sensor.front_lock_battery
 
 garage:
-  name: Garage Door
+  name: Garage Doors
   entities:
    - cover.garage_door
+   - sensor.garage_door_battery
+
+###################################################
+#                                                 #
+#                     Scenes                      #
+#                                                 #
+###################################################
+scenes_tab:
+  name: Scenes
+  view: yes
+  icon: mdi:blur
+  entities:
+    - group.scenes_card
+
+scenes_card:
+   name: Scenes
+   entities:
+    - scene.goodnight
 
 ###################################################
 #                                                 #

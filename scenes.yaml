@@ -1,0 +1,15 @@
+###################################################
+#                                                 #
+#                   GOODNIGHT                     #
+#                                                 #
+###################################################
+- name: Goodnight
+  entities:
+    switch.switch:
+      state: off
+    switch.switch_2:
+      state: off
+    cover.garage_door:
+      state: closed
+    lock.front_door:
+      state: locked
