@@ -39,7 +39,7 @@ binary_sensor.living_room_thermostat_is_using_emergency_heat:
  friendly_name: "Emergency Heat"
  icon: mdi:alert-circle
 binary_sensor.living_room_thermostat_online:
- friendly_name: "Nest Online"
+ friendly_name: "Nest"
  icon: mdi:check-circle
 
 #Pi-Hole
@@ -75,3 +75,13 @@ lock.front_door:
  friendly_name: Front Door
 sensor.front_lock_battery:
  icon: mdi:battery
+
+#Garage Door
+cover.garage_door:
+ friendly_name: Garage Door
+ icon: mdi:garage
+
+#Wink
+binary_sensor.lho_wink_hub:
+ friendly_name: "Wink"
+ icon: mdi:check-circle
