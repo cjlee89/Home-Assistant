@@ -4,9 +4,9 @@ sensor.dark_sky_daily_summary:
 sensor.forecast_today:
   friendly_name: "Today's Forecast"
 sensor.dark_sky_temperature:
-  friendly_name: "Current Outside Temp"
+  friendly_name: "Outside Temp"
 sensor.dark_sky_humidity:
-  friendly_name: "Humidity"
+  friendly_name: "Outside Humidity"
 
 #Nest
 sensor.living_room_thermostat_humidity:
