@@ -1,9 +1,0 @@
-- platform: template
-  covers:
-    garage_door:
-      icon_template:
-        '{% if (states.cover.garage_door.state) == "closed" %}
-          mdi:garage
-        {% else %}
-          mdi:garage-open
-        {% endif %}'
