@@ -29,7 +29,6 @@ script: !include scripts.yaml
 sensor: !include sensors.yaml
 device_tracker: !include device_tracker.yaml
 scene: !include scenes.yaml
-#cover: !include covers.yaml
 
 ###################################################
 #                                                 #
@@ -99,6 +98,7 @@ wink:
 #                 GOOGLE ASSISTANT                 #
 #                                                  #
 ####################################################
+#https://www.home-assistant.io/components/google_assistant/
 google_assistant:
   project_id: !secret ga_project_id
   client_id: !secret ga_client_id
@@ -152,4 +152,3 @@ tts:
 
 # Cloud
 cloud:
-

@@ -74,9 +74,9 @@ lock.front_door:
 
 #Garage Door
 cover.garage_door:
- friendly_name: Main
- icon: mdi:garage
-
+ friendly_name: Front
+ device_class: garage
+ 
 #Wink
 binary_sensor.lho_wink_hub:
  friendly_name: "Wink"
