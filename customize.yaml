@@ -71,15 +71,11 @@ switch.switch_2:
 #Schlage Lock
 lock.front_door:
  friendly_name: Front Door
-sensor.front_lock_battery:
- icon: mdi:battery
 
 #Garage Door
 cover.garage_door:
  friendly_name: Main
  icon: mdi:garage
-sensor.garage_door_battery:
- icon: mdi:battery
 
 #Wink
 binary_sensor.lho_wink_hub:
