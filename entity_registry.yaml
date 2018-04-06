@@ -2,11 +2,11 @@ climate.living_room:
   name:
   platform: nest
   unique_id: OSz0w2L_w64mtwRKdbr-xaw8pwmS_qOU
-switch.switch:
+switch.plugin_1:
   name:
   platform: zwave
   unique_id: 2-72057594076282880
-switch.switch_2:
+switch.porch_lights:
   name:
   platform: zwave
   unique_id: 3-72057594093060096

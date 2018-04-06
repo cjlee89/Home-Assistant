@@ -50,8 +50,8 @@ nest_thermostat:
 lights:
   name: Lights
   entities:
-   - switch.switch
-   - switch.switch_2
+   - switch.plugin_1
+   - switch.porch_lights
 
 locks:
   name: Locks
@@ -67,20 +67,27 @@ garage:
 
 ###################################################
 #                                                 #
-#                   SCENES TAB                    #
+#              SCENES/AUTOMATIONS TAB             #
 #                                                 #
 ###################################################
-scenes_tab:
-  name: Scenes
+automations_tab:
+  name: Automations
   view: yes
-  icon: mdi:movie
+  icon: mdi:vanish
   entities:
+    - group.automations_card
     - group.scenes_card
 
 scenes_card:
    name: Scenes
    entities:
     - scene.goodnight
+
+automations_card:
+   name: Automations
+   entities:
+    - automation.living_room_lamp__sunset
+
 
 ###################################################
 #                                                 #
@@ -136,3 +143,14 @@ zwave_status:
     - zwave.ge_12719_plugin_smart_switch
     - zwave.ge_12722_onoff_relay_switch
     - zwave.schlage_be469_touchscreen_deadbolt
+
+###################################################
+#                                                 #
+#                AUTOMATION GROUPS                #
+#                                                 #
+###################################################
+family_devices:
+  name: Family
+  entities:
+  - device_tracker.corysiphone
+  - device_tracker.katesiphone

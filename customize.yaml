@@ -60,11 +60,11 @@ sensor.speedtest_ping:
  friendly_name: "Ping"
 
 #Switches
-switch.switch:
+switch.plugin_1:
  friendly_name: Living Room Light
  icon: mdi:lamp
 
-switch.switch_2:
+switch.porch_lights:
  friendly_name: Porch Lights
  icon: mdi:lamp
 

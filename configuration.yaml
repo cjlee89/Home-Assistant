@@ -15,14 +15,14 @@ homeassistant:
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
-  # Customization file
-  customize: !include customize.yaml
   
 ###################################################
 #                                                 #
 #              FILE/FOLDER VARIABLES              #
 #                                                 #
 ###################################################
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
@@ -152,3 +152,6 @@ tts:
 
 # Cloud
 cloud:
+
+# Sun
+sun:
