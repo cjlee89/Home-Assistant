@@ -44,7 +44,6 @@ nest_thermostat:
    - sensor.living_room_thermostat_humidity
    - sensor.living_room_thermostat_hvac_state
    - sensor.living_room_thermostat_operation_mode
-   - binary_sensor.living_room_thermostat_fan
    - binary_sensor.living_room_thermostat_has_leaf
 
 lights:
@@ -86,10 +85,10 @@ scenes_card:
 automations_card:
    name: Automations
    entities:
+    - automation.away_mode
     - automation.living_room_lamp__sunset
     - automation.living_room_lamp__arrive_home
     - automation.garage_door_opened__porch_lights_on
-
 
 ###################################################
 #                                                 #

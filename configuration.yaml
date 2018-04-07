@@ -108,6 +108,7 @@ google_assistant:
   exposed_domains:
     - scene
     - switch
+    - climate
 
 ####################################################
 #                                                  #
