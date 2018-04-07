@@ -5,9 +5,9 @@
 ###################################################
 - name: Goodnight
   entities:
-    switch.switch:
+    switch.plugin_1:
       state: off
-    switch.switch_2:
+    switch.porch_lights:
       state: off
     cover.garage_door:
       state: closed

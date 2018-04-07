@@ -87,6 +87,8 @@ automations_card:
    name: Automations
    entities:
     - automation.living_room_lamp__sunset
+    - automation.living_room_lamp__arrive_home
+    - automation.garage_door_opened__porch_lights_on
 
 
 ###################################################
