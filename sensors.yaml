@@ -24,7 +24,7 @@
    - precip_probability
    - icon
   update_interval:
-   minutes: 2
+   minutes: 5
 
 ###################################################
 #                                                 #
