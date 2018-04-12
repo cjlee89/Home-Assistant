@@ -5,9 +5,9 @@
 ###################################################
 - alias: Away Mode
   trigger:
-    - platform: state
-      entity_id: group.family_devices
-      to: 'not_home'
+    platform: state
+    entity_id: group.family_devices
+    to: 'not_home'
   action:
     - service: scene.turn_on
       entity_id: scene.goodnight
@@ -23,13 +23,13 @@
 ###################################################
 - alias: Living Room Lamp - Sunset
   trigger:
-    - platform: sun
-      event: sunset
-      offset: "-00:45:00"
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
   condition:
-    - condition: state
-      entity_id: group.family_devices
-      state: 'home'
+    condition: state
+    entity_id: group.family_devices
+    state: 'home'
   action:
     service: homeassistant.turn_on
     entity_id: switch.plugin_1
@@ -41,14 +41,15 @@
 ###################################################
 - alias: Living Room Lamp - Arrive Home
   trigger:
-    - platform: state
-      entity_id: group.family_devices
-      to: 'home'
+    platform: state
+    entity_id: group.family_devices
+    to: 'home'
   condition:
     condition: or
     conditions:
     - condition: sun
       after: sunset
+      after_offset: "-00:44:00"
     - condition: sun
       before: sunrise
   action:
@@ -62,9 +63,9 @@
 ###################################################
 - alias: Garage Door Opened - Porch Lights On
   trigger:
-    - platform: state
-      entity_id: cover.garage_door
-      to: 'open'
+    platform: state
+    entity_id: cover.garage_door
+    to: 'open'
   condition:
     condition: or
     conditions:
