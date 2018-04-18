@@ -22,13 +22,13 @@ homeassistant:
 #                                                 #
 ###################################################
   customize: !include customize.yaml
-  packages: !include_dir_named packages
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 device_tracker: !include device_tracker.yaml
 scene: !include scenes.yaml
+binary_sensor: !include binary_sensor.yaml
 
 ###################################################
 #                                                 #

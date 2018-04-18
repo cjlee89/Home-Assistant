@@ -1,0 +1,64 @@
+###################################################
+#                                                 #
+#                   PING MONITORS                 #
+#                                                 #
+###################################################
+- platform: ping
+  host: 10.10.1.1
+  name: CoreRouter01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.2
+  name: CoreSwitch01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.3
+  name: AP01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.6
+  name: HV01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.7
+  name: DC01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.8
+  name: FPMS01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.9
+  name: WSUS01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.10
+  name: NETMON01
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.11
+  name: PIHOLE
+  count: 4
+  scan_interval: 300
+
+- platform: ping
+  host: 10.10.1.12
+  name: DC02
+  count: 4
+  scan_interval: 300

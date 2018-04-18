@@ -51,14 +51,6 @@ sensor.pihole_ads_percentage_blocked_today:
 sensor.pihole_domains_blocked:
  friendly_name: "Domains Blocked"
 
-#Speed Test
-sensor.speedtest_download:
- friendly_name: "Download"
-sensor.speedtest_upload:
- friendly_name: "Upload"
-sensor.speedtest_ping:
- friendly_name: "Ping"
-
 #Switches
 switch.plugin_1:
  friendly_name: Living Room Light

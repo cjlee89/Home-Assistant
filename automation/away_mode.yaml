@@ -1,0 +1,12 @@
+- alias: Away Mode
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    to: 'not_home'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.goodnight
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.living_room
+        away_mode: 'on'

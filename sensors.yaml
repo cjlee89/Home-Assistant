@@ -291,19 +291,6 @@
 
 ###################################################
 #                                                 #
-#                    SPEEDTEST                    #
-#                                                 #
-###################################################
-#https://www.home-assistant.io/components/sensor.speedtest/
-- platform: speedtest
-  server_id: "4874"
-  monitored_conditions:
-   - ping
-   - download
-   - upload
-
-###################################################
-#                                                 #
 #                  LOCK BATTERY                   #
 #                                                 #
 ###################################################

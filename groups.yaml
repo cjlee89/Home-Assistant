@@ -112,9 +112,8 @@ Status_tab:
   icon: mdi:pulse
   entities:
     - group.pihole_status
-    - group.speed_test
-    - group.online_status
     - group.zwave_status
+    - group.network_status
 
 pihole_status:
   name: "Pi-Hole"
@@ -123,19 +122,6 @@ pihole_status:
    - sensor.pihole_dns_queries_today
    - sensor.pihole_ads_percentage_blocked_today
    - sensor.pihole_domains_blocked
-   
-speed_test:  
-  name: "Internet Speed"
-  entities:
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-    - sensor.speedtest_ping
-
-online_status:
-  name: "Online Status"
-  entities:
-   - binary_sensor.living_room_thermostat_online
-   - binary_sensor.lho_wink_hub
 
 zwave_status:
   name: Z-Wave
@@ -144,6 +130,20 @@ zwave_status:
     - zwave.ge_12719_plugin_smart_switch
     - zwave.ge_12722_onoff_relay_switch
     - zwave.schlage_be469_touchscreen_deadbolt
+
+network_status:
+  name: Network Status
+  entities:
+    - binary_sensor.corerouter01
+    - binary_sensor.coreswitch01
+    - binary_sensor.ap01
+    - binary_sensor.hv01
+    - binary_sensor.dc01
+    - binary_sensor.dc02
+    - binary_sensor.fpms01
+    - binary_sensor.netmon01
+    - binary_sensor.wsus01
+    - binary_sensor.pihole
 
 ###################################################
 #                                                 #
