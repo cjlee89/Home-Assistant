@@ -1,79 +1,102 @@
-#Dark Sky
+###################################################
+#                                                 #
+#                   DARK SKY                      #
+#                                                 #
+###################################################
 sensor.dark_sky_daily_summary:
   friendly_name: "Summary"
-sensor.forecast_today:
-  friendly_name: "Today's Forecast"
 sensor.dark_sky_temperature:
   friendly_name: "Outside Temp"
 sensor.dark_sky_humidity:
   friendly_name: "Outside Humidity"
+sensor.dark_sky_cloud_coverage:
+  friendly_name: "Cloud Coverage"
 
-#Nest
+###################################################
+#                                                 #
+#                      NEST                       #
+#                                                 #
+###################################################
 sensor.living_room_thermostat_humidity:
- friendly_name: "Indoor Humidity"
- icon: mdi:water-percent
+  friendly_name: "Indoor Humidity"
+  icon: mdi:water-percent
 sensor.living_room_thermostat_hvac_state:
- friendly_name: "Heating/Cooling"
- icon: mdi:air-conditioner
+  friendly_name: "Heating/Cooling"
+  icon: mdi:air-conditioner
 sensor.living_room_thermostat_operation_mode:
- #friendly_name: "Heat/Cool/Eco"
- hidden: "true"
+  #friendly_name: "Heat/Cool/Eco"
+  hidden: "true"
 sensor.living_room_thermostat_target:
- #friendly_name: "Set Point"
- hidden: "true"
+  #friendly_name: "Set Point"
+  hidden: "true"
 sensor.living_room_thermostat_temperature:
- #friendly_name: "Current Temperature"
- hidden: "true"
+  #friendly_name: "Current Temperature"
+  hidden: "true"
 binary_sensor.living_room_thermostat_fan:
- friendly_name: "Fan Status"
- icon: mdi:fan
+  friendly_name: "Fan Status"
+  icon: mdi:fan
 binary_sensor.living_room_thermostat_has_leaf:
- friendly_name: "Leaf"
- icon: mdi:leaf
+  friendly_name: "Leaf"
+  icon: mdi:leaf
 binary_sensor.living_room_thermostat_is_locked:
- #friendly_name: "Locked"
- hidden: "true"
+  #friendly_name: "Locked"
+  hidden: "true"
 binary_sensor.living_room_thermostat_is_using_emergency_heat:
- friendly_name: "Emergency Heat"
- icon: mdi:alert-circle
+  friendly_name: "Emergency Heat"
+  icon: mdi:alert-circle
 binary_sensor.living_room_thermostat_online:
- friendly_name: "Nest"
- icon: mdi:check-circle
+  friendly_name: "Nest"
+  icon: mdi:check-circle
 
-#Pi-Hole
+###################################################
+#                                                 #
+#                      PIHOLE                     #
+#                                                 #
+###################################################
 sensor.pihole_ads_blocked_today:
- friendly_name: "Ads Blocked Today"
+  friendly_name: "Ads Blocked Today"
 sensor.pihole_dns_queries_today:
- friendly_name: "DNS Queries Today"
+  friendly_name: "DNS Queries Today"
 sensor.pihole_ads_percentage_blocked_today:
- friendly_name: "Percentage Blocked Today"
- icon: mdi:percent
+  friendly_name: "Percentage Blocked Today"
+  icon: mdi:percent
 sensor.pihole_domains_blocked:
- friendly_name: "Domains Blocked"
+  friendly_name: "Domains Blocked"
 
-#Switches
+###################################################
+#                                                 #
+#                     SWITCHES                    #
+#                                                 #
+###################################################
 switch.plugin_1:
- friendly_name: Living Room Light
- icon: mdi:lamp
+  friendly_name: Living Room Light
+  icon: mdi:lamp
 
 switch.porch_lights:
- friendly_name: Porch Lights
- icon: mdi:lamp
+  friendly_name: Porch Lights
+  icon: mdi:lamp
 
-#Schlage Lock
+###################################################
+#                                                 #
+#                      LOCKS                      #
+#                                                 #
+###################################################
 lock.front_door:
- friendly_name: Front Door
+  friendly_name: Front Door
 
-#Garage Door
+###################################################
+#                                                 #
+#                      GARAGE                     #
+#                                                 #
+###################################################
 cover.garage_door:
- friendly_name: Front
- device_class: garage
- 
-#Wink
-binary_sensor.lho_wink_hub:
- friendly_name: "Wink"
- icon: mdi:check-circle
+  friendly_name: Front
+  device_class: garage
 
-#Scenes
+###################################################
+#                                                 #
+#                      SCENES                     #
+#                                                 #
+###################################################
 scene.goodnight:
- icon: mdi:weather-night
+  icon: mdi:weather-night

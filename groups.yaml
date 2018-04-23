@@ -1,27 +1,22 @@
 ###################################################
 #                                                 #
-#                  HOME TAB                       #
+#                   HOME TAB                      #
 #                                                 #
 ###################################################
-home_tab:
+default_view:
   name: Home
   view: yes
-  icon: mdi:home-outline
   entities:
    - group.darksky_today
    - group.darksky_forecast
-   - group.nest_thermostat
-   - group.device_detection
-   - group.lights
-   - group.locks
-   - group.garage
    - device_tracker.corysiphone
    - device_tracker.katesiphone
-
+#-------------------------------------------------#
 darksky_today:
   name: Today
   entities:
    - sensor.forecast_today
+   - sensor.dark_sky_cloud_coverage
    - sensor.dark_sky_temperature
    - sensor.dark_sky_humidity
 
@@ -36,7 +31,20 @@ darksky_forecast:
    - sensor.forecast_5
    - sensor.forecast_6
    - sensor.forecast_7
-
+  
+###################################################
+#                                                 #
+#                   LIVING ROOM                   #
+#                                                 #
+###################################################
+living_room_tab:
+  name: Living Room
+  view: yes
+  entities:
+   - group.living_room_lights
+   - group.locks
+   - group.nest_thermostat
+#-------------------------------------------------#
 nest_thermostat:
   name: Thermostat
   entities:
@@ -46,7 +54,7 @@ nest_thermostat:
    - sensor.living_room_thermostat_operation_mode
    - binary_sensor.living_room_thermostat_has_leaf
 
-lights:
+living_room_lights:
   name: Lights
   entities:
    - switch.plugin_1
@@ -58,6 +66,17 @@ locks:
    - lock.front_door
    - sensor.front_lock_battery
 
+###################################################
+#                                                 #
+#                      GARAGE                     #
+#                                                 #
+###################################################
+garage_tab:
+  name: Garage
+  view: yes
+  entities:
+   - group.garage
+#-------------------------------------------------#
 garage:
   name: Garage Doors
   entities:
@@ -66,17 +85,16 @@ garage:
 
 ###################################################
 #                                                 #
-#              SCENES/AUTOMATIONS TAB             #
+#              AUTOMATIONS/SCENES TAB             #
 #                                                 #
 ###################################################
 automations_tab:
-  name: Automations
+  name: Automation/Scenes
   view: yes
-  icon: mdi:vanish
   entities:
     - group.automations_card
     - group.scenes_card
-
+#-------------------------------------------------#
 scenes_card:
    name: Scenes
    entities:
@@ -92,29 +110,17 @@ automations_card:
 
 ###################################################
 #                                                 #
-#                   LOCK CODES                    #
-#                                                 #
-###################################################
-lock_codes_tab:
-  name: Lock Codes
-  view: yes
-  icon: mdi:lock-smart
-  entities:
-
-###################################################
-#                                                 #
 #                   STATUS TAB                    #
 #                                                 #
 ###################################################
 Status_tab:
   name: Status
   view: yes
-  icon: mdi:pulse
   entities:
     - group.pihole_status
     - group.zwave_status
     - group.network_status
-
+#-------------------------------------------------#
 pihole_status:
   name: "Pi-Hole"
   entities:

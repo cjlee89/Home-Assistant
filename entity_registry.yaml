@@ -42,3 +42,19 @@ sensor.schlage_be469_touchscreen_deadbolt_system:
   name:
   platform: zwave
   unique_id: 4-72057594111082689
+sensor.corys_iphone_battery_state:
+  name:
+  platform: ios
+  unique_id: state_corys_iphone
+sensor.corys_iphone_battery_level:
+  name:
+  platform: ios
+  unique_id: level_corys_iphone
+sensor.corys_ipad_battery_state:
+  name:
+  platform: ios
+  unique_id: state_corys_ipad
+sensor.corys_ipad_battery_level:
+  name:
+  platform: ios
+  unique_id: level_corys_ipad

@@ -1,6 +1,6 @@
 ###################################################
 #                                                 #
-#                  DARK SKY                       #
+#                    DARK SKY                     #
 #                                                 #
 ###################################################
 #https://www.home-assistant.io/components/sensor.darksky/
@@ -23,6 +23,7 @@
    - humidity
    - precip_probability
    - icon
+   - cloud_cover
   update_interval:
    minutes: 5
 
@@ -36,7 +37,7 @@
 - platform: template
   sensors:
     forecast_today:
-      friendly_name: "Forecast"
+      friendly_name: "Today's Forecast"
       value_template: >
         {{states.sensor.dark_sky_daily_low_temperature.state|round(0)}}°/{{states.sensor.dark_sky_daily_high_temperature.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability.state|round(0)}}%
       icon_template: >-
@@ -276,7 +277,7 @@
 
 ###################################################
 #                                                 #
-#                    PIHOLE                       #
+#                      PIHOLE                     #
 #                                                 #
 ###################################################
 #https://www.home-assistant.io/components/sensor.pi_hole/
@@ -291,7 +292,7 @@
 
 ###################################################
 #                                                 #
-#                  LOCK BATTERY                   #
+#                   LOCK BATTERY                  #
 #                                                 #
 ###################################################
 - platform: template
@@ -327,13 +328,13 @@
 
 ###################################################
 #                                                 #
-#                GARAGE BATTERY                   #
+#                  GARAGE BATTERY                 #
 #                                                 #
 ###################################################
 - platform: template
   sensors:
     garage_door_battery:
-      friendly_name: "Battery"
+      friendly_name: "Front Battery"
       value_template: "{{states.cover.garage_door.attributes.battery_level | round (0)}}"
       unit_of_measurement: '%'
       icon_template: 

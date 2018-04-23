@@ -5,7 +5,7 @@
 ###################################################
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: LHO
+  name: HOME ASSISTANT
   # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude_home
   longitude: !secret longitude_home
@@ -29,6 +29,7 @@ sensor: !include sensors.yaml
 device_tracker: !include device_tracker.yaml
 scene: !include scenes.yaml
 binary_sensor: !include binary_sensor.yaml
+zone: !include zones.yaml
 
 ###################################################
 #                                                 #
@@ -160,3 +161,6 @@ sun:
 # Recorder
 recorder:
   purge_keep_days: 5
+
+# ios
+ios:

@@ -1,0 +1,207 @@
+###################################################
+#                                                 #
+#                      AP01                       #
+#                                                 #
+###################################################
+- alias: AP01 Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ap01
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "AP01 is offline!"
+- alias: AP01 Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ap01
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "AP01 is online!"
+
+###################################################
+#                                                 #
+#                      HV01                       #
+#                                                 #
+###################################################
+- alias: HV01 Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hv01
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "HV01 is offline!"
+- alias: HV01 Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hv01
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "HV01 is online!"
+
+###################################################
+#                                                 #
+#                      DC01                       #
+#                                                 #
+###################################################
+- alias: DC01 Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dc01
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "DC01 is offline!"
+- alias: DC01 Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dc01
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "DC01 is online!"
+
+###################################################
+#                                                 #
+#                      DC02                       #
+#                                                 #
+###################################################
+- alias: DC02 Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dc02
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "DC02 is offline!"
+- alias: DC02 Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dc02
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "DC02 is online!"
+
+###################################################
+#                                                 #
+#                    FPMS01                       #
+#                                                 #
+###################################################
+- alias: FPMS01 Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fpms01
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "FPMS01 is offline!"
+- alias: FPMS01 Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fpms01
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "FPMS01 is online!"
+
+###################################################
+#                                                 #
+#                    NETMON01                     #
+#                                                 #
+###################################################
+- alias: NETMON01 Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.netmon01
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "NETMON01 is offline!"
+- alias: NETMON01 Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.netmon01
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "NETMON01 is online!"
+
+###################################################
+#                                                 #
+#                     WSUS01                      #
+#                                                 #
+###################################################
+- alias: WSUS01 Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.wsus01
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "WSUS01 is offline!"
+- alias: WSUS01 Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.wsus01
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "WSUS01 is online!"
+
+###################################################
+#                                                 #
+#                     PIHOLE                      #
+#                                                 #
+###################################################
+- alias: PIHOLE Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pihole
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "Pi-Hole is offline!"
+- alias: PIHOLE Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pihole
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "Pi-Hole is online!"
