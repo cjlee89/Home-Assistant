@@ -1,3 +1,8 @@
+###################################################
+#                                                 #
+#            LIVING ROOM LAMP - SUNSET            #
+#                                                 #
+###################################################
 - alias: Living Room Lamp - Sunset
   trigger:
     platform: sun
@@ -11,6 +16,11 @@
     service: homeassistant.turn_on
     entity_id: switch.plugin_1
 
+###################################################
+#                                                 #
+#          LIVING ROOM LAMP - ARRIVE HOME         #
+#                                                 #
+###################################################
 - alias: Living Room Lamp - Arrive Home
   trigger:
     platform: state
@@ -21,13 +31,18 @@
     conditions:
     - condition: sun
       after: sunset
-      after_offset: "-00:44:00"
+      after_offset: "-00:45:00"
     - condition: sun
       before: sunrise
   action:
     service: homeassistant.turn_on
     entity_id: switch.plugin_1
 
+###################################################
+#                                                 #
+#      GARAGE DOOR OPENED - PORCH LIGHTS ON       #
+#                                                 #
+###################################################
 - alias: Garage Door Opened - Porch Lights On
   trigger:
     platform: state

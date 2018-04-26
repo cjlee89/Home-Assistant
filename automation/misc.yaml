@@ -1,0 +1,33 @@
+###################################################
+#                                                 #
+#               TURN OFF AUTOMATIONS              #
+#                                                 #
+###################################################
+- alias: Turn Off Animation
+  trigger: 
+    platform: time
+    at: '03:55:00'
+  condition:
+    condition: time
+    weekday:
+      - wed
+      - sat
+  action:
+    - service: automation.turn_off
+      entity_id: automation.living_room_lamp__arrive_home
+    - service: automation.turn_off
+      entity_id: automation.away_mode
+- alias: Turn On Animation
+  trigger: 
+    platform: time
+    at: '04:45:00'
+  condition:
+    condition: time
+    weekday:
+      - wed
+      - sat
+  action:
+    - service: automation.turn_on
+      entity_id: automation.living_room_lamp__arrive_home
+    - service: automation.turn_on
+      entity_id: automation.away_mode

@@ -205,3 +205,29 @@
     - service: notify.ios_corys_iphone
       data:
         message: "Pi-Hole is online!"
+
+###################################################
+#                                                 #
+#                  GARAGE DOOR                    #
+#                                                 #
+###################################################
+- alias: Garage Door Open
+  trigger:
+    platform: state
+    entity_id: cover.garage_door
+    from: 'closed'
+    to: 'open'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "Garage door has opened!"
+- alias: Garage Door Closed
+  trigger:
+    platform: state
+    entity_id: cover.garage_door
+    from: 'open'
+    to: 'closed'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "Garage door has closed!"

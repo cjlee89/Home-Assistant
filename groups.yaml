@@ -89,7 +89,7 @@ garage:
 #                                                 #
 ###################################################
 automations_tab:
-  name: Automation/Scenes
+  name: Automations/Scenes
   view: yes
   entities:
     - group.automations_card
