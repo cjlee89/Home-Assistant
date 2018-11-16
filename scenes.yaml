@@ -5,11 +5,23 @@
 ###################################################
 - name: Goodnight
   entities:
-    switch.plugin_1:
+    group.all_switches:
       state: off
-    switch.porch_lights:
+    cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label:
+      state: closed
+    lock.front_door:
+      state: locked
+
+###################################################
+#                                                 #
+#                      AWAY                       #
+#                                                 #
+###################################################
+- name: Away
+  entities:
+    group.all_switches:
       state: off
-    cover.garage_door:
+    cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label:
       state: closed
     lock.front_door:
       state: locked

@@ -130,32 +130,6 @@
 
 ###################################################
 #                                                 #
-#                    NETMON01                     #
-#                                                 #
-###################################################
-- alias: NETMON01 Offline
-  trigger:
-    platform: state
-    entity_id: binary_sensor.netmon01
-    from: 'on'
-    to: 'off'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "NETMON01 is offline!"
-- alias: NETMON01 Online
-  trigger:
-    platform: state
-    entity_id: binary_sensor.netmon01
-    from: 'off'
-    to: 'on'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "NETMON01 is online!"
-
-###################################################
-#                                                 #
 #                     WSUS01                      #
 #                                                 #
 ###################################################
@@ -179,6 +153,32 @@
     - service: notify.ios_corys_iphone
       data:
         message: "WSUS01 is online!"
+
+###################################################
+#                                                 #
+#                     WSUS01                      #
+#                                                 #
+###################################################
+- alias: UNIFI Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.unifi
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "UNIFI is offline!"
+- alias: UNIFI Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.unifi
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "UNIFI is online!"
 
 ###################################################
 #                                                 #
@@ -214,9 +214,13 @@
 - alias: Garage Door Open
   trigger:
     platform: state
-    entity_id: cover.garage_door
+    entity_id: cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
     from: 'closed'
     to: 'open'
+  condition:
+    condition: state
+    entity_id: device_tracker.corysiphone
+    state: 'not_home'
   action:
     - service: notify.ios_corys_iphone
       data:
@@ -224,9 +228,13 @@
 - alias: Garage Door Closed
   trigger:
     platform: state
-    entity_id: cover.garage_door
+    entity_id: cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
     from: 'open'
     to: 'closed'
+  condition:
+    condition: state
+    entity_id: device_tracker.corysiphone
+    state: 'not_home'
   action:
     - service: notify.ios_corys_iphone
       data:

@@ -7,120 +7,38 @@ default_view:
   name: Home
   view: yes
   entities:
-   - group.darksky_today
-   - group.darksky_forecast
+   - group.automations_card
+   - group.scenes_card
+   - group.energy_usage
+   - group.pihole_status
+   - group.network_status
+   - group.zwave_status
    - device_tracker.corysiphone
    - device_tracker.katesiphone
-#-------------------------------------------------#
-darksky_today:
-  name: Today
-  entities:
-   - sensor.forecast_today
-   - sensor.dark_sky_cloud_coverage
+   - sensor.living_room_thermostat_temperature
+   - sensor.living_room_thermostat_humidity
    - sensor.dark_sky_temperature
    - sensor.dark_sky_humidity
-
-darksky_forecast:
-  name: 7-Day Forecast
-  entities:
-   - sensor.dark_sky_daily_summary
-   - sensor.forecast_1
-   - sensor.forecast_2
-   - sensor.forecast_3
-   - sensor.forecast_4
-   - sensor.forecast_5
-   - sensor.forecast_6
-   - sensor.forecast_7
-  
-###################################################
-#                                                 #
-#                   LIVING ROOM                   #
-#                                                 #
-###################################################
-living_room_tab:
-  name: Living Room
-  view: yes
-  entities:
-   - group.living_room_lights
-   - group.locks
-   - group.nest_thermostat
 #-------------------------------------------------#
-nest_thermostat:
-  name: Thermostat
-  entities:
-   - climate.living_room
-   - sensor.living_room_thermostat_humidity
-   - sensor.living_room_thermostat_hvac_state
-   - sensor.living_room_thermostat_operation_mode
-   - binary_sensor.living_room_thermostat_has_leaf
+automations_card:
+   name: Automations
+   entities:
+    - automation.away_mode
+    - automation.living_room_lamp_on_at_sunset
+    - automation.living_room_lamp_on_when_arriving
+    - automation.nest_to_home_when_arriving
+    - automation.garage_door_openedporch_lights_on
 
-living_room_lights:
-  name: Lights
-  entities:
-   - switch.plugin_1
-   - switch.porch_lights
-
-locks:
-  name: Locks
-  entities:
-   - lock.front_door
-   - sensor.front_lock_battery
-
-###################################################
-#                                                 #
-#                      GARAGE                     #
-#                                                 #
-###################################################
-garage_tab:
-  name: Garage
-  view: yes
-  entities:
-   - group.garage
-#-------------------------------------------------#
-garage:
-  name: Garage Doors
-  entities:
-   - cover.garage_door
-   - sensor.garage_door_battery
-
-###################################################
-#                                                 #
-#              AUTOMATIONS/SCENES TAB             #
-#                                                 #
-###################################################
-automations_tab:
-  name: Automations/Scenes
-  view: yes
-  entities:
-    - group.automations_card
-    - group.scenes_card
-#-------------------------------------------------#
 scenes_card:
    name: Scenes
    entities:
     - scene.goodnight
 
-automations_card:
-   name: Automations
-   entities:
-    - automation.away_mode
-    - automation.living_room_lamp__sunset
-    - automation.living_room_lamp__arrive_home
-    - automation.garage_door_opened__porch_lights_on
-
-###################################################
-#                                                 #
-#                   STATUS TAB                    #
-#                                                 #
-###################################################
-Status_tab:
-  name: Status
-  view: yes
+energy_usage:
+  name: Energy Usage
   entities:
-    - group.pihole_status
-    - group.zwave_status
-    - group.network_status
-#-------------------------------------------------#
+   - sensor.current_energy_usage
+
 pihole_status:
   name: "Pi-Hole"
   entities:
@@ -136,6 +54,7 @@ zwave_status:
     - zwave.ge_12719_plugin_smart_switch
     - zwave.ge_12722_onoff_relay_switch
     - zwave.schlage_be469_touchscreen_deadbolt
+    - zwave.linear_gd00z4_garage_door_opener_remote_controller
 
 network_status:
   name: Network Status
@@ -147,9 +66,71 @@ network_status:
     - binary_sensor.dc01
     - binary_sensor.dc02
     - binary_sensor.fpms01
-    - binary_sensor.netmon01
     - binary_sensor.wsus01
     - binary_sensor.pihole
+    - binary_sensor.unifi
+  
+###################################################
+#                                                 #
+#                   LIVING ROOM                   #
+#                                                 #
+###################################################
+living_room_tab:
+  name: Living Room
+  view: yes
+  entities:
+   - group.living_room_lights
+   - group.locks
+   - group.nest_thermostat
+#-------------------------------------------------#
+nest_thermostat:
+  name: Nest
+  entities:
+   - climate.living_room
+
+living_room_lights:
+  name: Lights
+  entities:
+   - switch.plugin_1
+
+locks:
+  name: Locks
+  entities:
+   - lock.front_door
+   - sensor.front_lock_battery
+
+###################################################
+#                                                 #
+#                      PORCH                      #
+#                                                 #
+###################################################
+porch_tab:
+  name: Porch
+  view: yes
+  entities:
+   - group.porch_lights
+#-------------------------------------------------#
+porch_lights:
+  name: Lights
+  entities:
+   - switch.porch_lights
+
+###################################################
+#                                                 #
+#                      GARAGE                     #
+#                                                 #
+###################################################
+garage_tab:
+  name: Garage
+  view: yes
+  entities:
+   - group.garage
+#-------------------------------------------------#
+garage:
+  name: Garage Doors
+  entities:
+   - cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
+#   - sensor.garage_door_battery
 
 ###################################################
 #                                                 #

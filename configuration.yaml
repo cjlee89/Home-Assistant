@@ -29,7 +29,6 @@ sensor: !include sensors.yaml
 device_tracker: !include device_tracker.yaml
 scene: !include scenes.yaml
 binary_sensor: !include binary_sensor.yaml
-zone: !include zones.yaml
 
 ###################################################
 #                                                 #
@@ -88,28 +87,16 @@ nest:
 
 ####################################################
 #                                                  #
-#                      WINK                        #
-#                                                  #
-####################################################
-#https://www.home-assistant.io/components/wink/
-wink:
-
-####################################################
-#                                                  #
 #                 GOOGLE ASSISTANT                 #
 #                                                  #
 ####################################################
 #https://www.home-assistant.io/components/google_assistant/
 google_assistant:
   project_id: !secret ga_project_id
-  client_id: !secret ga_client_id
-  access_token: !secret ga_access_token
-  agent_user_id: !secret ga_agent_user_id
   api_key: !secret ga_api_key
   exposed_domains:
     - scene
     - switch
-    - climate
 
 ####################################################
 #                                                  #

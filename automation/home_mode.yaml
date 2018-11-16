@@ -1,40 +1,39 @@
 ###################################################
 #                                                 #
-#            LIVING ROOM LAMP - SUNSET            #
+#                 NEST ECO OFF                    #
 #                                                 #
 ###################################################
-- alias: Living Room Lamp on at Sunset
+- alias: Nest to Home when Arriving
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:45:00"
-  condition:
-    condition: state
+    platform: state
     entity_id: group.family_devices
-    state: 'home'
+    from: 'not_home'
+    to: 'home'
   action:
-    service: homeassistant.turn_on
-    entity_id: switch.plugin_1
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.living_room
+        away_mode: 'off'
 
 ###################################################
 #                                                 #
-#      GARAGE DOOR OPENED - PORCH LIGHTS ON       #
+#          LIVING ROOM LAMP - ARRIVE HOME         #
 #                                                 #
 ###################################################
-- alias: Garage Door Opened/Porch Lights On
+- alias: Living Room Lamp on when Arriving
   trigger:
     platform: state
-    entity_id: cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
-    to: 'open'
+    entity_id: group.family_devices
+    from: 'not_home'
+    to: 'home'
   condition:
     condition: or
     conditions:
     - condition: sun
       after: sunset
-      after_offset: "-00:15:00"
+      after_offset: "-00:45:00"
     - condition: sun
       before: sunrise
-      before_offset: "-04:00:00"
   action:
     service: homeassistant.turn_on
-    entity_id: switch.porch_lights
+    entity_id: switch.plugin_1

@@ -47,7 +47,7 @@
 
 - platform: ping
   host: 10.10.1.10
-  name: NETMON01
+  name: UNIFI
   count: 4
   scan_interval: 300
 

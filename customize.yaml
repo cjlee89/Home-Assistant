@@ -1,51 +1,36 @@
 ###################################################
 #                                                 #
-#                   DARK SKY                      #
-#                                                 #
-###################################################
-sensor.dark_sky_daily_summary:
-  friendly_name: "Summary"
-sensor.dark_sky_temperature:
-  friendly_name: "Outside Temp"
-sensor.dark_sky_humidity:
-  friendly_name: "Outside Humidity"
-sensor.dark_sky_cloud_coverage:
-  friendly_name: "Cloud Coverage"
-
-###################################################
-#                                                 #
 #                      NEST                       #
 #                                                 #
 ###################################################
 sensor.living_room_thermostat_humidity:
-  friendly_name: "Indoor Humidity"
+  friendly_name: Indoor Humidity
   icon: mdi:water-percent
 sensor.living_room_thermostat_hvac_state:
-  friendly_name: "Heating/Cooling"
+  friendly_name: Heating/Cooling
   icon: mdi:air-conditioner
 sensor.living_room_thermostat_operation_mode:
-  #friendly_name: "Heat/Cool/Eco"
-  hidden: "true"
+  #friendly_name: Heat/Cool/Eco
+  hidden: true
 sensor.living_room_thermostat_target:
-  #friendly_name: "Set Point"
-  hidden: "true"
+  #friendly_name: Set Point
+  hidden: true
 sensor.living_room_thermostat_temperature:
-  #friendly_name: "Current Temperature"
-  hidden: "true"
+  friendly_name: Indoor Temp
 binary_sensor.living_room_thermostat_fan:
-  friendly_name: "Fan Status"
+  friendly_name: Fan Status
   icon: mdi:fan
 binary_sensor.living_room_thermostat_has_leaf:
-  friendly_name: "Leaf"
+  friendly_name: Leaf
   icon: mdi:leaf
 binary_sensor.living_room_thermostat_is_locked:
-  #friendly_name: "Locked"
-  hidden: "true"
+  #friendly_name: Locked
+  hidden: true
 binary_sensor.living_room_thermostat_is_using_emergency_heat:
-  friendly_name: "Emergency Heat"
+  friendly_name: Emergency Heat
   icon: mdi:alert-circle
 binary_sensor.living_room_thermostat_online:
-  friendly_name: "Nest"
+  friendly_name: Nest
   icon: mdi:check-circle
 
 ###################################################
@@ -54,14 +39,14 @@ binary_sensor.living_room_thermostat_online:
 #                                                 #
 ###################################################
 sensor.pihole_ads_blocked_today:
-  friendly_name: "Ads Blocked Today"
+  friendly_name: Ads Blocked Today
 sensor.pihole_dns_queries_today:
-  friendly_name: "DNS Queries Today"
+  friendly_name: DNS Queries Today
 sensor.pihole_ads_percentage_blocked_today:
-  friendly_name: "Percentage Blocked Today"
+  friendly_name: Percentage Blocked Today
   icon: mdi:percent
 sensor.pihole_domains_blocked:
-  friendly_name: "Domains Blocked"
+  friendly_name: Domains Blocked
 
 ###################################################
 #                                                 #
@@ -89,9 +74,8 @@ lock.front_door:
 #                      GARAGE                     #
 #                                                 #
 ###################################################
-cover.garage_door:
+cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label:
   friendly_name: Front
-  device_class: garage
 
 ###################################################
 #                                                 #
@@ -100,3 +84,21 @@ cover.garage_door:
 ###################################################
 scene.goodnight:
   icon: mdi:weather-night
+
+###################################################
+#                                                 #
+#                     ENERGY                      #
+#                                                 #
+###################################################
+sensor.current_energy_usage:
+  icon: mdi:power-plug
+
+###################################################
+#                                                 #
+#                   DARK SKY                      #
+#                                                 #
+###################################################
+sensor.dark_sky_temperature:
+  friendly_name: Outdoor Temp
+sensor.dark_sky_humidity:
+  friendly_name: Outdoor Humidity
