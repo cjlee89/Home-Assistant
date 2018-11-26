@@ -40,12 +40,6 @@
   scan_interval: 300
 
 - platform: ping
-  host: 10.10.1.9
-  name: WSUS01
-  count: 4
-  scan_interval: 300
-
-- platform: ping
   host: 10.10.1.10
   name: UNIFI
   count: 4
@@ -54,11 +48,5 @@
 - platform: ping
   host: 10.10.1.11
   name: PIHOLE
-  count: 4
-  scan_interval: 300
-
-- platform: ping
-  host: 10.10.1.12
-  name: DC02
   count: 4
   scan_interval: 300

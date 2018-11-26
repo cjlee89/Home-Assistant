@@ -24,7 +24,7 @@
 - alias: Garage Door Opened/Porch Lights On
   trigger:
     platform: state
-    entity_id: cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
+    entity_id: cover.linear_gd00z4_garage_door_opener
     to: 'open'
   condition:
     condition: or

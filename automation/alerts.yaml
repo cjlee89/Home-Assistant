@@ -78,32 +78,6 @@
 
 ###################################################
 #                                                 #
-#                      DC02                       #
-#                                                 #
-###################################################
-- alias: DC02 Offline
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dc02
-    from: 'on'
-    to: 'off'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "DC02 is offline!"
-- alias: DC02 Online
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dc02
-    from: 'off'
-    to: 'on'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "DC02 is online!"
-
-###################################################
-#                                                 #
 #                    FPMS01                       #
 #                                                 #
 ###################################################
@@ -130,33 +104,7 @@
 
 ###################################################
 #                                                 #
-#                     WSUS01                      #
-#                                                 #
-###################################################
-- alias: WSUS01 Offline
-  trigger:
-    platform: state
-    entity_id: binary_sensor.wsus01
-    from: 'on'
-    to: 'off'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "WSUS01 is offline!"
-- alias: WSUS01 Online
-  trigger:
-    platform: state
-    entity_id: binary_sensor.wsus01
-    from: 'off'
-    to: 'on'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "WSUS01 is online!"
-
-###################################################
-#                                                 #
-#                     WSUS01                      #
+#                       UNIFI                     #
 #                                                 #
 ###################################################
 - alias: UNIFI Offline
@@ -214,8 +162,8 @@
 - alias: Garage Door Open
   trigger:
     platform: state
-    entity_id: cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
-    from: 'closed'
+    entity_id: cover.linear_gd00z4_garage_door_opener
+    #from: 'closed'
     to: 'open'
   condition:
     condition: state
@@ -228,8 +176,8 @@
 - alias: Garage Door Closed
   trigger:
     platform: state
-    entity_id: cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
-    from: 'open'
+    entity_id: cover.linear_gd00z4_garage_door_opener
+    #from: 'open'
     to: 'closed'
   condition:
     condition: state

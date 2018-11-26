@@ -64,9 +64,7 @@ network_status:
     - binary_sensor.ap01
     - binary_sensor.hv01
     - binary_sensor.dc01
-    - binary_sensor.dc02
     - binary_sensor.fpms01
-    - binary_sensor.wsus01
     - binary_sensor.pihole
     - binary_sensor.unifi
   
@@ -129,7 +127,7 @@ garage_tab:
 garage:
   name: Garage Doors
   entities:
-   - cover.linear_gd00z4_garage_door_opener_remote_controller_barrier_state_label
+   - cover.linear_gd00z4_garage_door_opener
 #   - sensor.garage_door_battery
 
 ###################################################
