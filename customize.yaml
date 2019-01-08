@@ -4,33 +4,22 @@
 #                                                 #
 ###################################################
 sensor.living_room_thermostat_humidity:
-  friendly_name: Indoor Humidity
   icon: mdi:water-percent
 sensor.living_room_thermostat_hvac_state:
-  friendly_name: Heating/Cooling
   icon: mdi:air-conditioner
 sensor.living_room_thermostat_operation_mode:
-  #friendly_name: Heat/Cool/Eco
   hidden: true
 sensor.living_room_thermostat_target:
-  #friendly_name: Set Point
   hidden: true
-sensor.living_room_thermostat_temperature:
-  friendly_name: Indoor Temp
 binary_sensor.living_room_thermostat_fan:
-  friendly_name: Fan Status
   icon: mdi:fan
 binary_sensor.living_room_thermostat_has_leaf:
-  friendly_name: Leaf
   icon: mdi:leaf
 binary_sensor.living_room_thermostat_is_locked:
-  #friendly_name: Locked
   hidden: true
 binary_sensor.living_room_thermostat_is_using_emergency_heat:
-  friendly_name: Emergency Heat
   icon: mdi:alert-circle
 binary_sensor.living_room_thermostat_online:
-  friendly_name: Nest
   icon: mdi:check-circle
 
 ###################################################
@@ -47,42 +36,25 @@ sensor.pihole_ads_percentage_blocked_today:
   icon: mdi:percent
 sensor.pihole_domains_blocked:
   friendly_name: Domains Blocked
-
+  
 ###################################################
 #                                                 #
 #                     SWITCHES                    #
 #                                                 #
 ###################################################
 switch.plugin_1:
-  friendly_name: Living Room Light
   icon: mdi:lamp
-
+switch.plugin_2:
+  icon: mdi:lamp
 switch.porch_lights:
-  friendly_name: Porch Lights
-  icon: mdi:lamp
+  icon: mdi:lightbulb
 
 ###################################################
 #                                                 #
-#                      LOCKS                      #
+#                     SCRIPTS                     #
 #                                                 #
 ###################################################
-lock.front_door:
-  friendly_name: Front Door
-
-###################################################
-#                                                 #
-#                      GARAGE                     #
-#                                                 #
-###################################################
-cover.linear_gd00z4_garage_door_opener:
-  friendly_name: Front
-
-###################################################
-#                                                 #
-#                      SCENES                     #
-#                                                 #
-###################################################
-scene.goodnight:
+script.goodnight:
   icon: mdi:weather-night
 
 ###################################################

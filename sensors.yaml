@@ -15,13 +15,13 @@
 
 ###################################################
 #                                                 #
-#                   LOCK BATTERY                  #
+#                    DEADBOLT                     #
 #                                                 #
 ###################################################
 - platform: template
   sensors:
     front_lock_battery:
-      friendly_name: "Front Door Battery"
+      friendly_name: "Front Lock Battery"
       value_template: "{{states.zwave.schlage_be469_touchscreen_deadbolt.attributes.battery_level}}"
       unit_of_measurement: '%'
       icon_template: 
@@ -48,6 +48,19 @@
         {% else %}
           mdi:battery-alert
         {% endif %}'
+
+- platform: template
+  sensors:
+    front_lock_notification:
+      friendly_name: "Front Lock Notification"
+      value_template: "{{states.lock.schlage_be469_touchscreen_deadbolt_locked.attributes.notification}}"
+      icon_template: mdi:lock-alert
+
+- platform: template
+  sensors:
+    front_lock_status:
+      friendly_name: "Front Lock Status"
+      value_template: "{{states.lock.schlage_be469_touchscreen_deadbolt_locked.attributes.lock_status}}"
 
 ###################################################
 #                                                 #

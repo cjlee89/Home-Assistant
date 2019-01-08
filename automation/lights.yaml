@@ -1,13 +1,13 @@
 ###################################################
 #                                                 #
-#            LIVING ROOM LAMP - SUNSET            #
+#                 LIGHTS - SUNSET                 #
 #                                                 #
 ###################################################
-- alias: Living Room Lamp on at Sunset
+- alias: Lights on at Sunset
   trigger:
     platform: sun
     event: sunset
-    offset: "-00:45:00"
+    offset: "-01:00:00"
   condition:
     condition: state
     entity_id: group.family_devices

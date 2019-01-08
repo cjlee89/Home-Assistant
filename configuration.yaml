@@ -22,6 +22,7 @@ homeassistant:
 #                                                 #
 ###################################################
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 group: !include groups.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
@@ -97,6 +98,7 @@ google_assistant:
   exposed_domains:
     - scene
     - switch
+    - script
 
 ####################################################
 #                                                  #
@@ -137,8 +139,11 @@ tts:
 # Cloud
 cloud:
 
-#hassio
-hassio:
+#Discovery
+discovery:
+  ignore:
+    - plex_mediaserver
+    - google_cast
 
 # Sun
 sun:

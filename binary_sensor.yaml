@@ -28,12 +28,6 @@
   scan_interval: 300
 
 - platform: ping
-  host: 10.10.1.7
-  name: DC01
-  count: 4
-  scan_interval: 300
-
-- platform: ping
   host: 10.10.1.8
   name: FPMS01
   count: 4

@@ -3,7 +3,7 @@
 #                 NEST ECO OFF                    #
 #                                                 #
 ###################################################
-- alias: Nest to Home when Arriving
+- alias: Nest to Home
   trigger:
     platform: state
     entity_id: group.family_devices
@@ -17,10 +17,10 @@
 
 ###################################################
 #                                                 #
-#          LIVING ROOM LAMP - ARRIVE HOME         #
+#               LIGHTS - ARRIVE HOME              #
 #                                                 #
 ###################################################
-- alias: Living Room Lamp on when Arriving
+- alias: Lights on when Arriving
   trigger:
     platform: state
     entity_id: group.family_devices
@@ -31,9 +31,9 @@
     conditions:
     - condition: sun
       after: sunset
-      after_offset: "-00:45:00"
+      after_offset: "-01:00:00"
     - condition: sun
       before: sunrise
   action:
     service: homeassistant.turn_on
-    entity_id: switch.plugin_1
+    entity_id: group.home_lights

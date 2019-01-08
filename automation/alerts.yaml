@@ -52,32 +52,6 @@
 
 ###################################################
 #                                                 #
-#                      DC01                       #
-#                                                 #
-###################################################
-- alias: DC01 Offline
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dc01
-    from: 'on'
-    to: 'off'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "DC01 is offline!"
-- alias: DC01 Online
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dc01
-    from: 'off'
-    to: 'on'
-  action:
-    - service: notify.ios_corys_iphone
-      data:
-        message: "DC01 is online!"
-
-###################################################
-#                                                 #
 #                    FPMS01                       #
 #                                                 #
 ###################################################
@@ -163,7 +137,7 @@
   trigger:
     platform: state
     entity_id: cover.linear_gd00z4_garage_door_opener
-    #from: 'closed'
+    from: 'closed'
     to: 'open'
   condition:
     condition: state
@@ -177,7 +151,7 @@
   trigger:
     platform: state
     entity_id: cover.linear_gd00z4_garage_door_opener
-    #from: 'open'
+    from: 'open'
     to: 'closed'
   condition:
     condition: state

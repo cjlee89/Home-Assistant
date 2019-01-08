@@ -1,6 +1,6 @@
 ###################################################
 #                                                 #
-#                   HOME TAB                      #
+#                     HOME                        #
 #                                                 #
 ###################################################
 default_view:
@@ -8,7 +8,7 @@ default_view:
   view: yes
   entities:
    - group.automations_card
-   - group.scenes_card
+   - group.scripts_card
    - group.energy_usage
    - group.pihole_status
    - group.network_status
@@ -24,15 +24,16 @@ automations_card:
    name: Automations
    entities:
     - automation.away_mode
-    - automation.living_room_lamp_on_at_sunset
-    - automation.living_room_lamp_on_when_arriving
-    - automation.nest_to_home_when_arriving
+    - automation.lights_on_at_sunset
+    - automation.lights_on_when_arriving
+    - automation.nest_to_home
     - automation.garage_door_openedporch_lights_on
 
-scenes_card:
-   name: Scenes
+scripts_card:
+   name: Scripts
+   control: hidden
    entities:
-    - scene.goodnight
+    - script.goodnight
 
 energy_usage:
   name: Energy Usage
@@ -52,6 +53,7 @@ zwave_status:
   entities:
     - zwave.aeotec_zw090_zstick_gen5_us
     - zwave.ge_12719_plugin_smart_switch
+    - zwave.ge_12719_plugin_smart_switch_2
     - zwave.ge_12722_onoff_relay_switch
     - zwave.schlage_be469_touchscreen_deadbolt
     - zwave.linear_gd00z4_garage_door_opener_remote_controller
@@ -63,7 +65,6 @@ network_status:
     - binary_sensor.coreswitch01
     - binary_sensor.ap01
     - binary_sensor.hv01
-    - binary_sensor.dc01
     - binary_sensor.fpms01
     - binary_sensor.pihole
     - binary_sensor.unifi
@@ -92,10 +93,28 @@ living_room_lights:
    - switch.plugin_1
 
 locks:
-  name: Locks
+  name: Deadbolt
   entities:
-   - lock.front_door
+   - lock.schlage_be469_touchscreen_deadbolt_locked
    - sensor.front_lock_battery
+   - sensor.front_lock_notification
+   - sensor.front_lock_status
+
+###################################################
+#                                                 #
+#                  MASTER BEDROOM                 #
+#                                                 #
+###################################################
+master_bedroom_tab:
+  name: Master Bedroom
+  view: yes
+  entities:
+   - group.master_bedroom_lights
+#-------------------------------------------------#
+master_bedroom_lights:
+  name: Lights
+  entities:
+   - switch.plugin_2
 
 ###################################################
 #                                                 #
@@ -140,3 +159,16 @@ family_devices:
   entities:
   - device_tracker.corysiphone
   - device_tracker.katesiphone
+
+goodnight_lights:
+#script.lights that turn off with goodnight
+  name: Goodnight Lights
+  entities:
+  - switch.plugin_1
+  - switch.porch_lights
+
+home_lights:
+#automation.lights that turn on when arriving home
+  name: Home Lights
+  entities:
+  - switch.plugin_1
