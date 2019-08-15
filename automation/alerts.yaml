@@ -26,59 +26,85 @@
 
 ###################################################
 #                                                 #
-#                      HV01                       #
+#                     HP ILO                      #
 #                                                 #
 ###################################################
-- alias: HV01 Offline
+- alias: HP ILO Offline
   trigger:
     platform: state
-    entity_id: binary_sensor.hv01
+    entity_id: binary_sensor.hp_ilo
     from: 'on'
     to: 'off'
   action:
     - service: notify.ios_corys_iphone
       data:
-        message: "HV01 is offline!"
+        message: "HP iLO is offline!"
 - alias: HV01 Online
   trigger:
     platform: state
-    entity_id: binary_sensor.hv01
+    entity_id: binary_sensor.hp_ilo
     from: 'off'
     to: 'on'
   action:
     - service: notify.ios_corys_iphone
       data:
-        message: "HV01 is online!"
+        message: "HP iLO is online!"
 
 ###################################################
 #                                                 #
-#                    FPMS01                       #
+#                     UNRAID                      #
 #                                                 #
 ###################################################
-- alias: FPMS01 Offline
+- alias: UNRAID Offline
   trigger:
     platform: state
-    entity_id: binary_sensor.fpms01
+    entity_id: binary_sensor.unraid
     from: 'on'
     to: 'off'
   action:
     - service: notify.ios_corys_iphone
       data:
-        message: "FPMS01 is offline!"
-- alias: FPMS01 Online
+        message: "Unraid is offline!"
+- alias: UNRAID Online
   trigger:
     platform: state
-    entity_id: binary_sensor.fpms01
+    entity_id: binary_sensor.unraid
     from: 'off'
     to: 'on'
   action:
     - service: notify.ios_corys_iphone
       data:
-        message: "FPMS01 is online!"
+        message: "Unraid is online!"
+        
+###################################################
+#                                                 #
+#                    OPENVPN                      #
+#                                                 #
+###################################################
+- alias: OPENVPN Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.openvpn
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "OpenVPN is offline!"
+- alias: OPENVPN Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.openvpn
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "OpenVPN is online!"
 
 ###################################################
 #                                                 #
-#                       UNIFI                     #
+#                     UNIFI                       #
 #                                                 #
 ###################################################
 - alias: UNIFI Offline
@@ -90,7 +116,7 @@
   action:
     - service: notify.ios_corys_iphone
       data:
-        message: "UNIFI is offline!"
+        message: "Unifi is offline!"
 - alias: UNIFI Online
   trigger:
     platform: state
@@ -100,7 +126,7 @@
   action:
     - service: notify.ios_corys_iphone
       data:
-        message: "UNIFI is online!"
+        message: "Unifi is online!"
 
 ###################################################
 #                                                 #
@@ -130,7 +156,33 @@
 
 ###################################################
 #                                                 #
-#                  GARAGE DOOR                    #
+#                      PLEX                       #
+#                                                 #
+###################################################
+- alias: PLEX Offline
+  trigger:
+    platform: state
+    entity_id: binary_sensor.plex
+    from: 'on'
+    to: 'off'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "Plex is offline!"
+- alias: PLEX Online
+  trigger:
+    platform: state
+    entity_id: binary_sensor.plex
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notify.ios_corys_iphone
+      data:
+        message: "Plex is online!"
+
+###################################################
+#                                                 #
+#                   GARAGE DOOR                   #
 #                                                 #
 ###################################################
 - alias: Garage Door Open
@@ -141,7 +193,7 @@
     to: 'open'
   condition:
     condition: state
-    entity_id: device_tracker.corysiphone
+    entity_id: device_tracker.corys_iphone
     state: 'not_home'
   action:
     - service: notify.ios_corys_iphone
@@ -155,7 +207,7 @@
     to: 'closed'
   condition:
     condition: state
-    entity_id: device_tracker.corysiphone
+    entity_id: device_tracker.corys_iphone
     state: 'not_home'
   action:
     - service: notify.ios_corys_iphone

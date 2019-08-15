@@ -21,21 +21,6 @@ binary_sensor.living_room_thermostat_is_using_emergency_heat:
   icon: mdi:alert-circle
 binary_sensor.living_room_thermostat_online:
   icon: mdi:check-circle
-
-###################################################
-#                                                 #
-#                      PIHOLE                     #
-#                                                 #
-###################################################
-sensor.pihole_ads_blocked_today:
-  friendly_name: Ads Blocked Today
-sensor.pihole_dns_queries_today:
-  friendly_name: DNS Queries Today
-sensor.pihole_ads_percentage_blocked_today:
-  friendly_name: Percentage Blocked Today
-  icon: mdi:percent
-sensor.pihole_domains_blocked:
-  friendly_name: Domains Blocked
   
 ###################################################
 #                                                 #
@@ -56,14 +41,6 @@ switch.porch_lights:
 ###################################################
 script.goodnight:
   icon: mdi:weather-night
-
-###################################################
-#                                                 #
-#                     ENERGY                      #
-#                                                 #
-###################################################
-sensor.current_energy_usage:
-  icon: mdi:power-plug
 
 ###################################################
 #                                                 #

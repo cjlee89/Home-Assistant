@@ -1,6 +1,6 @@
 ###################################################
 #                                                 #
-#                    AWAY MODE                    #
+#                   AWAY MODE                     #
 #                                                 #
 ###################################################
 - alias: Away Mode
@@ -18,7 +18,7 @@
     - service: lock.lock
       data:
         entity_id: group.all_locks
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
         entity_id: climate.living_room
-        away_mode: 'on'
+        preset_mode: 'away'

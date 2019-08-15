@@ -13,7 +13,7 @@
     entity_id: group.family_devices
     state: 'home'
   action:
-    service: homeassistant.turn_on
+    service: switch.turn_on
     entity_id: switch.plugin_1
 
 ###################################################
@@ -36,5 +36,9 @@
       before: sunrise
       before_offset: "-04:00:00"
   action:
-    service: homeassistant.turn_on
-    entity_id: switch.porch_lights
+    - service: switch.turn_on
+      entity_id: switch.porch_lights
+    - delay:
+       minutes: 5
+    - service: switch.turn_off
+      entity_id: switch.porch_lights

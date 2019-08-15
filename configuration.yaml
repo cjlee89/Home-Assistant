@@ -27,7 +27,6 @@ group: !include groups.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 sensor: !include sensors.yaml
-device_tracker: !include device_tracker.yaml
 scene: !include scenes.yaml
 binary_sensor: !include binary_sensor.yaml
 
@@ -37,14 +36,18 @@ binary_sensor: !include binary_sensor.yaml
 #                                                 #
 ###################################################
 http:
-  api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# api_password: !secret http_password
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret base_url
   server_port: !secret server_port
-  ssl_certificate: !secret ssl_cert
-  ssl_key: !secret ssl_key
-  ip_ban_enabled: True
-  login_attempts_threshold: 3
+# ssl_certificate: !secret ssl_cert
+# ssl_key: !secret ssl_key
+# use_x_forwarded_for: false
+# trusted_proxies:
+#   - 127.0.0.1
+#   - 10.10.1.9
+# ip_ban_enabled: True
+# login_attempts_threshold: 3
 
 ###################################################
 #                                                 #
@@ -52,9 +55,9 @@ http:
 #                                                 #
 ###################################################
 #https://www.home-assistant.io/components/duckdns/
-duckdns:
-  domain: !secret duck_dns_domain
-  access_token: !secret duck_dns_token
+#duckdns:
+#  domain: !secret duck_dns_domain
+#  access_token: !secret duck_dns_token
 
 ####################################################
 #                                                  #
@@ -102,11 +105,23 @@ google_assistant:
 
 ####################################################
 #                                                  #
+#              DARK SKY WEATHER CARD               #
+#                                                  #
+####################################################
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+    name: Dark Sky
+    mode: daily
+
+####################################################
+#                                                  #
 #                      OTHER                       #
 #                                                  #
 ####################################################
 # Enables the frontend
 frontend:
+  themes: !include themes.yaml
 
 # Enables configuration UI
 config:
@@ -134,7 +149,8 @@ map:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 # Cloud
 cloud:
@@ -154,3 +170,6 @@ recorder:
 
 # ios
 ios:
+
+#system_health
+system_health:

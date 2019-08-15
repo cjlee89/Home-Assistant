@@ -1,20 +1,5 @@
 ###################################################
 #                                                 #
-#                      PIHOLE                     #
-#                                                 #
-###################################################
-#https://www.home-assistant.io/components/sensor.pi_hole/
-- platform: pi_hole
-  host: !secret pihole_host
-  name: "Pi-Hole"
-  monitored_conditions:
-   - ads_blocked_today
-   - ads_percentage_today
-   - dns_queries_today
-   - domains_being_blocked
-
-###################################################
-#                                                 #
 #                    DEADBOLT                     #
 #                                                 #
 ###################################################
@@ -100,27 +85,26 @@
 
 ###################################################
 #                                                 #
-#                AEP ENERGY BRIDGE                #
+#                  SYSTEM MONITOR                 #
 #                                                 #
 ###################################################
-- platform: dte_energy_bridge
-  ip: 10.10.1.54
-  version: 2
-
-####################################################
-#                                                  #
-#                    DARK SKY                      #
-#                                                  #
-####################################################
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: last_boot
+    - type: processor_use
+    - type: ipv4_address
+      arg: eth0
+      
+###################################################
+#                                                 #
+#                    DARK SKY                     #
+#                                                 #
+###################################################
 - platform: darksky
   api_key: !secret darksky_api
   monitored_conditions:
     - temperature
     - humidity
-
-#- platform: template
-#  sensors:
-#    sensor.dark_sky_humidity:
-#      value_template: '{{ states.sensor.dark_sky_humidity.state | round(0) }}'
-#    sensor.dark_sky_temperature:
-#      value_template: round (0)
