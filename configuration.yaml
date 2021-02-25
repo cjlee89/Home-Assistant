@@ -1,0 +1,147 @@
+###################################################
+#                                                 #
+#     HOME ASSISTANT MAIN CONFIGURATION FILE      #
+#                                                 #
+###################################################
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret evelation_home
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: !secret time_zone
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+  
+###################################################
+#                                                 #
+#              FILE/FOLDER VARIABLES              #
+#                                                 #
+###################################################
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+script: !include_dir_merge_named scripts
+group: !include groups.yaml
+automation: !include_dir_merge_list automations
+sensor: !include sensors.yaml
+scene: !include scenes.yaml
+binary_sensor: !include binary_sensor.yaml
+
+###################################################
+#                                                 #
+#                     HTTP                        #
+#                                                 #
+###################################################
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - 10.10.1.9
+# ip_ban_enabled: True
+# login_attempts_threshold: 3
+
+####################################################
+#                                                  #
+#                     ZWAVE                        #
+#                                                  #
+####################################################
+#https://home-assistant.io/docs/z-wave/
+zwave:
+ usb_path: /dev/ttyACM0
+ autoheal: false
+ polling_interval: 30000
+ network_key: !secret zwave_secure
+ config_path: /config/ozwave/config
+
+#switch:
+#  - platform: command_line
+#    switches:
+#      aeotec_zstick_disco_light:
+#        friendly_name: 'Aeotec Z-Stick Disco Light'
+#        command_on: 'echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00'
+#        command_off: 'echo -e -n "\x01\x08\x00\xF2\x51\x01\x00\x05\x01\x51" > /dev/serial/by-id/usb-0658_0200-if00'
+
+####################################################
+#                                                  #
+#                      NEST                        #
+#                                                  #
+####################################################
+#https://home-assistant.io/components/nest/
+nest:
+ client_id: !secret nest_client_id
+ client_secret: !secret nest_client_secret
+
+####################################################
+#                                                  #
+#                     WEATHER                      #
+#                                                  #
+####################################################
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+    mode: daily
+
+####################################################
+#                                                  #
+#                      OTHER                       #
+#                                                  #
+####################################################
+# Enables the frontend
+frontend:
+  themes: !include_dir_merge_named themes
+  javascript_version: latest
+
+# Enables configuration UI
+config:
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Cloud
+cloud:
+
+# Discovery
+discovery:
+
+# Sun
+sun:
+
+# Recorder
+recorder:
+  purge_keep_days: 3
+
+# system health
+system_health:
+
+# mobile app
+mobile_app:
+
+#Wake On Lan
+wake_on_lan:
+switch:
+  - platform: wake_on_lan
+    name: "SENTIENTTOILET"
+    mac: 00:D8:61:51:6A:96
