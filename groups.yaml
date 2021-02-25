@@ -1,0 +1,33 @@
+###################################################
+#                                                 #
+#                AUTOMATION GROUPS                #
+#                                                 #
+###################################################
+family_devices:
+  name: Family
+  entities:
+  - person.cory
+  - person.kate
+
+goodnight_lights:
+#script.lights that turn off with goodnight script
+  name: Goodnight Lights
+  entities:
+  - switch.plugin_1
+  - switch.plugin_2
+  - switch.outdoor_garage_lights
+
+home_lights:
+#automation.lights that turn on when arriving home
+  name: Home Lights
+  entities:
+  - switch.plugin_1
+  - switch.plugin_2
+
+maintenance_mode:
+#automation.turn off when unraid is backing up
+  name: Maintenance Mode
+  entities:
+  - automation.away_mode
+  - automation.lights_on_when_arriving
+  - automation.lights_on_at_sunset
