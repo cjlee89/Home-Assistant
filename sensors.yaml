@@ -1,0 +1,164 @@
+###################################################
+#                                                 #
+#                    DEADBOLT                     #
+#                                                 #
+###################################################
+- platform: template
+  sensors:
+    front_lock_battery:
+      friendly_name: "Front Lock Battery"
+      value_template: "{{states.zwave.schlage_be469_touchscreen_deadbolt.attributes.battery_level}}"
+      unit_of_measurement: '%'
+      icon_template: 
+        '{% if (states.sensor.front_lock_battery.state) == "100" %}
+          mdi:battery
+        {% elif (states.sensor.front_lock_battery.state) >= "90" %}
+          mdi:battery-90
+        {% elif (states.sensor.front_lock_battery.state) >= "80" %}
+          mdi:battery-80
+        {% elif (states.sensor.front_lock_battery.state) >= "70" %}
+          mdi:battery-70
+        {% elif (states.sensor.front_lock_battery.state) >= "60" %}
+          mdi:battery-60
+        {% elif (states.sensor.front_lock_battery.state) >= "50" %}
+          mdi:battery-50
+        {% elif (states.sensor.front_lock_battery.state) >= "40" %}
+          mdi:battery-40
+        {% elif (states.sensor.front_lock_battery.state) >= "30" %}
+          mdi:battery-30
+        {% elif (states.sensor.front_lock_battery.state) >= "20" %}
+          mdi:battery-20
+        {% elif (states.sensor.front_lock_battery.state) >= "10" %}
+          mdi:battery-10
+        {% else %}
+          mdi:battery-alert
+        {% endif %}'
+
+- platform: template
+  sensors:
+    front_lock_notification:
+      friendly_name: "Front Lock Notification"
+      value_template: "{{states.lock.schlage_be469_touchscreen_deadbolt_locked.attributes.notification}}"
+      icon_template: mdi:lock-alert
+
+- platform: template
+  sensors:
+    front_lock_status:
+      friendly_name: "Front Lock Status"
+      value_template: "{{states.lock.schlage_be469_touchscreen_deadbolt_locked.attributes.lock_status}}"
+
+###################################################
+#                                                 #
+#                  GARAGE BATTERY                 #
+#                                                 #
+###################################################
+#- platform: template
+#  sensors:
+#    garage_door_battery:
+#      friendly_name: "Front Battery"
+#      value_template: "{{states.cover.garage_door.attributes.battery_level | round (0)}}"
+#      unit_of_measurement: '%'
+#     icon_template: 
+#        '{% if (states.sensor.garage_door_battery.state) == "100" %}
+#         mdi:battery
+#       {% elif (states.sensor.garage_door_battery.state) >= "90" %}
+#          mdi:battery-90
+#        {% elif (states.sensor.garage_door_battery.state) >= "80" %}
+#          mdi:battery-80
+#        {% elif (states.sensor.garage_door_battery.state) >= "70" %}
+#          mdi:battery-70
+#        {% elif (states.sensor.garage_door_battery.state) >= "60" %}
+#          mdi:battery-60
+#        {% elif (states.sensor.garage_door_battery.state) >= "50" %}
+#          mdi:battery-50
+#        {% elif (states.sensor.garage_door_battery.state) >= "40" %}
+#          mdi:battery-40
+#        {% elif (states.sensor.garage_door_battery.state) >= "30" %}
+#          mdi:battery-30
+#        {% elif (states.sensor.garage_door_battery.state) >= "20" %}
+#          mdi:battery-20
+#        {% elif (states.sensor.garage_door_battery.state) >= "10" %}
+#          mdi:battery-10
+#        {% else %}
+#          mdi:battery-alert
+#        {% endif %}'
+
+###################################################
+#                                                 #
+#                  SYSTEM MONITOR                 #
+#                                                 #
+###################################################
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: last_boot
+    - type: processor_use
+    - type: ipv4_address
+      arg: eth0
+
+####################################################
+#                                                  #
+#                     WEATHER                      #
+#                                                  #
+####################################################
+- platform: darksky
+  api_key: !secret darksky_api
+  forecast:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+  monitored_conditions:
+    - icon
+    - summary
+    - humidity
+    - temperature
+    - precip_type
+    - precip_probability
+    - daily_summary
+  scan_interval:
+    minutes: 3
+
+####################################################
+#                                                  #
+#               Date/Time Templates                #
+#                                                  #
+####################################################
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+
+- platform: template
+  sensors:
+    date_template:
+      friendly_name: 'Date'
+      value_template: '{{ as_timestamp(now()) | timestamp_custom("%a %m/%d/%Y", True) }}'
+      icon_template: mdi:calendar-outline
+        
+- platform: template
+  sensors:
+    time_template:
+      friendly_name: 'Time'
+      value_template: '{{ as_timestamp(now()) | timestamp_custom("%I:%M %p", True) }}'
+      icon_template: mdi:clock-outline
+
+####################################################
+#                                                  #
+#                 Motion Template                  #
+#                                                  #
+####################################################
+- platform: template
+  sensors:
+    living_room_movement:
+      friendly_name: "Motion"
+      value_template: >-
+        {% if is_state('sensor.inovelli_lzw60_4_in_1_sensor_burglar', '8') %}
+          Motion
+        {% else %}
+          Idle
+        {% endif %}
