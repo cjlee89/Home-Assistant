@@ -1,0 +1,17 @@
+###################################################
+#                                                 #
+#                    GOODNIGHT                    #
+#                                                 #
+###################################################
+goodnight:
+  alias: Goodnight
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: group.goodnight_lights
+    - service: cover.close_cover
+      data:
+        entity_id: all
+    - service: lock.lock
+      data:
+        entity_id: all
