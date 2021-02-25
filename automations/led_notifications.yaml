@@ -1,0 +1,40 @@
+###################################################
+#                                                 #
+#          GARAGE DOOR - LED Notification         #
+#                                                 #
+###################################################
+- alias: Garage Door - LED Notification On
+  trigger:
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_cory
+      from: 'closed'
+      to: 'open'
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_kate
+      from: 'closed'
+      to: 'open'
+  action:
+    - service: zwave.set_config_parameter
+      data: 
+        node_id: 14
+        parameter: 16
+        value: 50268672
+        size: 4
+
+- alias: Garage Door - LED Notification Off
+  trigger:
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_cory
+      from: 'open'
+      to: 'closed'
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_kate
+      from: 'open'
+      to: 'closed'
+  action:
+    - service: zwave.set_config_parameter
+      data: 
+        node_id: 14
+        parameter: 16
+        value: 16714240
+        size: 4

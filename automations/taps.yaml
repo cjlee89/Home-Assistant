@@ -1,0 +1,90 @@
+###################################################
+#                                                 #
+#              OUTDOOR LIGHTS ON 2x UP            #
+#                                                 #
+###################################################
+- alias: Outdoor Lights On 2x Tap Up
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.inovelli_lzw31_sn_dimmer_red_series
+      node_id: 14
+      scene_id: 2
+      scene_data: 7860
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.outdoor_garage_lights
+
+###################################################
+#                                                 #
+#            OUTDOOR LIGHTS OFF 2x DOWN           #
+#                                                 #
+###################################################
+- alias: Outdoor Lights Off 2x Tap Down
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.inovelli_lzw31_sn_dimmer_red_series
+      node_id: 14
+      scene_id: 1
+      scene_data: 7860
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.outdoor_garage_lights
+
+###################################################
+#                                                 #
+#             GARAGE DOOR OPEN 3x UP              #
+#                                                 #
+###################################################
+- alias: Garage Doors Open 3x Tap Up
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.inovelli_lzw31_sn_dimmer_red_series
+      node_id: 14
+      scene_id: 2
+      scene_data: 7920
+  action:
+    - service: cover.open_cover
+      data:
+        entity_id: cover.linear_gd00z4_garage_door_opener_cory
+
+###################################################
+#                                                 #
+#           GARAGE DOOR CLOSED 3x DOWN            #
+#                                                 #
+###################################################
+- alias: Garage Doors Closed 3x Tap Down
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.inovelli_lzw31_sn_dimmer_red_series
+      node_id: 14
+      scene_id: 1
+      scene_data: 7920
+  action:
+    - service: cover.close_cover
+      data:
+        entity_id: all
+
+###################################################
+#                                                 #
+#             GOODNIGHT DOUBLE 4x Down            #
+#                                                 #
+###################################################
+- alias: Goodnight 4x Tap Down
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.inovelli_lzw31_sn_dimmer_red_series
+      node_id: 14
+      scene_id: 1
+      scene_data: 7980
+  action:
+    - service: script.goodnight

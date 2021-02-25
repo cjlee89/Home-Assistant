@@ -1,0 +1,65 @@
+###################################################
+#                                                 #
+#                CORY GARAGE DOOR                 #
+#                                                 #
+###################################################
+- alias: Cory Garage Door Open Alert
+  trigger:
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_cory
+      to: 'open'
+  condition:
+    condition: state
+    entity_id: person.cory
+    state: 'not_home'
+  action:
+    - service: notify.mobile_app_corys_iphone
+      data:
+        message: "Cory's Garage door has opened!"
+
+- alias: Cory Garage Door Closed Alert
+  trigger:
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_cory
+      to: 'closed'
+  condition:
+    condition: state
+    entity_id: person.cory
+    state: 'not_home'
+  action:
+    - service: notify.mobile_app_corys_iphone
+      data:
+        message: "Cory's Garage door has closed!"
+
+###################################################
+#                                                 #
+#                KATE GARAGE DOOR                 #
+#                                                 #
+###################################################
+- alias: Kate Garage Door Open Alert
+  trigger:
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_kate
+      to: 'open'
+  condition:
+    condition: state
+    entity_id: person.cory
+    state: 'not_home'
+  action:
+    - service: notify.mobile_app_corys_iphone
+      data:
+        message: "Kate's Garage door has opened!"
+
+- alias: Kate Garage Door Closed Alert
+  trigger:
+    - platform: state
+      entity_id: cover.linear_gd00z4_garage_door_opener_kate
+      to: 'closed'
+  condition:
+    condition: state
+    entity_id: person.cory
+    state: 'not_home'
+  action:
+    - service: notify.mobile_app_corys_iphone
+      data:
+        message: "Kate's Garage door has closed!"

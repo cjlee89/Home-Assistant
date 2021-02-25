@@ -1,0 +1,33 @@
+###################################################
+#                                                 #
+#             Maintenance Mode On                 #
+#                                                 #
+###################################################
+- alias: Maintenance Mode On
+  trigger:
+    platform: time
+    at: '04:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - sun
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.maintenance_mode
+
+###################################################
+#                                                 #
+#            Maintenance Mode Off                 #
+#                                                 #
+###################################################
+- alias: Maintenance Mode Off
+  trigger:
+    platform: time
+    at: '05:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - sun
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.maintenance_mode

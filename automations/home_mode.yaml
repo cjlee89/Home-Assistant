@@ -1,0 +1,38 @@
+###################################################
+#                                                 #
+#                  NEST TO HOME                   #
+#                                                 #
+###################################################
+- alias: Nest to Home
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: nest.set_away_mode
+      data:
+        away_mode: home
+
+###################################################
+#                                                 #
+#               LIGHTS - ARRIVE HOME              #
+#                                                 #
+###################################################
+- alias: Lights on when Arriving
+  trigger:
+    platform: state
+    entity_id: group.family_devices
+    from: 'not_home'
+    to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.inovelli_lzw60_4_in_1_sensor_luminance
+        below: 5
+      - condition: time
+        after: '16:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.home_lights

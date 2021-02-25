@@ -1,0 +1,51 @@
+###################################################
+#                                                 #
+#                LIGHTS - LUMINANCE               #
+#                                                 #
+###################################################
+- alias: Lights on at Darkness
+  trigger:
+    - platform: time
+      at: "16:00:00"
+    - platform: numeric_state
+      entity_id: sensor.inovelli_lzw60_4_in_1_sensor_luminance
+      below: 5
+      above: 1
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.inovelli_lzw60_4_in_1_sensor_luminance
+      below: 5
+    - condition: state
+      entity_id: group.family_devices
+      state: 'home'
+    - condition: time
+      after: '15:59:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.home_lights
+
+###################################################
+#                                                 #
+#      GARAGE DOOR OPENED - PORCH LIGHTS ON       #
+#                                                 #
+###################################################
+- alias: Garage Door Opened/Garage Lights On
+  trigger:
+    - platform: state
+      entity_id:
+      - cover.linear_gd00z4_garage_door_opener_cory
+      - cover.linear_gd00z4_garage_door_opener_kate
+      to: 'open'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.inovelli_lzw60_4_in_1_sensor_luminance
+      below: 5
+  action:
+    - service: switch.turn_on
+      entity_id: switch.outdoor_garage_lights
+    - delay:
+       minutes: 3
+    - service: switch.turn_off
+      entity_id: switch.outdoor_garage_lights
